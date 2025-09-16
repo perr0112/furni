@@ -9,7 +9,7 @@ export function initScrollProduct() {
   const gridWidthCol = retrieveRootVariables(document.body, "--grid-width-col");
   const gridGap = retrieveRootVariables(document.body, "--grid-gap");
   const finalWidthProduct =
-    gridWidthCol.split("p")[0] * 8 + gridGap.split("r")[0] * 8;
+    gridWidthCol.split("p")[0] * 7 + gridGap.split("r")[0] * 8;
 
   let tl = gsap.timeline({
     defaults: {
