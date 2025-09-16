@@ -1,0 +1,344 @@
+/********************/
+/*****  fonts  ******/
+/********************/
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../assets/fonts/HelveticaNeue.ttc");
+}
+
+/*********************/
+/******  base  *******/
+/*********************/
+
+:root {
+  /* font-sizes */
+  --context: 1040;
+  --xxl: 380rem;
+  --xl: 70rem;
+  --l: 40rem;
+  --m: 24rem;
+  --s: 20rem;
+  --xs: 12rem;
+  --header: 10rem;
+  --p: 14rem;
+  --cta: 25rem;
+  --nav: 16rem;
+  --nav-d: 16rem;
+
+  --small-p: 8rem;
+
+  --t-1: 32rem;
+  --t-3: 24rem;
+
+  --gap-section: 150rem;
+  --big-gap-section: 300rem;
+
+  --global-padding: 16rem;
+
+  /* colors */
+  --primary: #ffffff;
+  --secondary: #000000;
+  --primary-red: #8d3013;
+  --primary-green: #407375;
+
+  /* transitions */
+  --main-transition: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  --basic-duration: 1.2s;
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --context: 375;
+    --xxl: 100rem;
+    --svg-xl: 84rem;
+    --xl: 36rem;
+    --l: 28rem;
+    --m: 22rem;
+    --s: 16rem;
+    --xs: 12rem;
+    --p: 14rem;
+    --cta: 20rem;
+    --nav: 28rem;
+    --nav-d: 52rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  :root {
+    --global-padding: 14rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / var(--context));
+  /* font-size: clamp(1px, 10 * 100vw / var(--size), var(--clamp)); */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--p);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-size: var(--m);
+  padding: var(--global-padding);
+  font-family: Helvetica Neue, Arial, sans-serif;
+
+  /* overflow: hidden; */
+}
+
+.fs {
+  font-size: var(--s);
+}
+
+.fl {
+  font-size: var(--l);
+}
+
+.fm {
+  font-size: var(--m);
+}
+
+p {
+  font-size: var(--p);
+}
+
+span,
+.fxs {
+  font-size: var(--xs);
+}
+
+.mb-30 {
+  margin-bottom: 30rem;
+}
+
+.t-align-right {
+  text-align: right;
+}
+
+/* Titles */
+
+h1 {
+  /* font-size: var(--l) !important; */
+  font-size: var(--t-1) !important;
+}
+
+h3 {
+  /* font-size: var(--l) !important; */
+  font-size: var(--t-3) !important;
+}
+
+.main__title {
+  color: var(--primary-red);
+}
+
+/*********************/
+/*********************/
+/*********************/
+
+.grid.markers {
+  position: fixed;
+  margin-inline: var(--global-padding);
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  width: calc(100vw - var(--global-padding) * 2);
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  /* visibility: hidden; */
+}
+
+.grid.markers div {
+  /* height: 100%; */
+  /* width: 100%; */
+  background-color: rgba(255, 0, 0, 0.15);
+  /* transition: all var(--basic-duration) var(--main-transition); */
+  transform-origin: bottom;
+}
+
+/* Header */
+
+.header {
+  position: fixed;
+  top: var(--global-padding);
+  left: var(--global-padding);
+  width: calc(100vw - var(--global-padding) * 2);
+  z-index: 999;
+  /* mix-blend-mode: difference; */
+  color: var(--primary);
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+/* Intro */
+
+.intro {
+  position: relative;
+  height: calc(100vh - 2 * var(--global-padding));
+  width: calc(100vw - 2 * var(--global-padding));
+}
+
+.intro .intro__background {
+  position: absolute;
+  top: calc(-1 * var(--global-padding));
+  left: calc(-1 * var(--global-padding));
+  width: calc(100% + 2 * var(--global-padding));
+  height: calc(100% + 2 * var(--global-padding));
+  /* filter: brightness(25%); */
+  /* background-color: var(--black-color); */
+}
+
+.intro .intro__content {
+  position: absolute;
+  bottom: calc(var(--global-padding) * 4);
+  width: 100%;
+  z-index: 111;
+  color: var(--primary);
+}
+
+.intro .intro__content .grid {
+  align-items: center;
+}
+
+.intro__content .intro__content-img {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--global-padding);
+}
+
+.intro__content .intro__content-img img {
+  width: 50% !important;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+}
+
+/* About */
+
+.about {
+  margin-top: var(--gap-section);
+}
+
+/* Details */
+
+.details {
+  margin-top: var(--big-gap-section);
+}
+
+.details .details-img {
+  height: auto;
+}
+
+.details .item .item__topbar {
+  width: 100%;
+  height: 1px;
+  display: block;
+  background-color: var(--secondary);
+  margin-bottom: 20rem;
+}
+
+.list .item .item__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20rem;
+}
+
+.item__title .title__svg {
+  background-color: var(--primary-green);
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.item__title .title__svg svg {
+  width: 20rem;
+  height: 20rem;
+  /* aspect-ratio: 1; */
+}
+
+.item .item__description {
+  margin-top: 25rem;
+  line-height: 85%;
+}
+
+/* Product scroll */
+
+.product {
+  position: relative;
+  height: 300vh;
+  margin-top: var(--big-gap-section);
+}
+
+.product .product__content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.product .product__background {
+  position: absolute;
+  left: calc(-1 * var(--global-padding));
+  width: calc(100% + 2 * var(--global-padding));
+  height: 100%;
+  background-color: var(--secondary);
+  z-index: -1;
+}
+
+.product__img img {
+  width: calc(var(--grid-width-col) * 4 + var(--grid-gap) * 3);
+}
+
+.product .product__caption {
+  position: absolute;
+  text-align: center;
+  bottom: calc(var(--grid-gap) * 3);
+  color: var(--primary);
+}
+
+.product__text {
+  width: calc(100vw - 2 * var(--global-padding));
+  /* background-color: green; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product__text div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.product__text div p {
+  font-size: var(--m) !important;
+}
+
+.product__text div .block {
+  position: relative;
+  width: calc(var(--grid-width-col) * 6 + var(--grid-gap) * 5);
+  height: 3px;
+  /* background-color: red; */
+}
