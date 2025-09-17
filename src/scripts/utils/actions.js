@@ -14,4 +14,8 @@ const cancelClick = (element) => {
   element.style.pointerEvents = "none";
 };
 
-export { stopScroll, enableScroll, enableClick, cancelClick };
+const customCursor = (element, type) => {
+  element.style.cursor = type;
+}
+
+export { stopScroll, enableScroll, enableClick, cancelClick, customCursor };

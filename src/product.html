@@ -25,10 +25,32 @@
       <div class="col-span-1"></div>
     </div>
 
+    <div class="button-cart" id="button-cart">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 26 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.7657 0.0516858C8.33404 0.408522 5.71587 2.74212 5.71587 5.4552V6.0386L4.43755 6.06126C3.21392 6.07825 3.13189 6.08391 2.76275 6.23118C1.96978 6.53704 1.41607 7.1261 1.27251 7.80579C1.1563 8.38352 -0.0399851 22.5833 0.00103053 22.9232C0.0830618 23.6142 0.780327 24.3675 1.60064 24.6394L1.99029 24.7697H12.6202H23.2501L23.6397 24.6394C24.46 24.3675 25.1573 23.6142 25.2393 22.9232C25.2803 22.5833 24.084 8.38919 23.9678 7.81145C23.9268 7.61321 23.8311 7.347 23.7491 7.22239C23.5235 6.8429 22.9835 6.42376 22.5118 6.24251C22.1016 6.08391 22.0469 6.07825 20.8096 6.06126L19.5245 6.0386V5.57981C19.5176 4.20911 18.7725 2.76477 17.542 1.73958C16.3663 0.759694 15.0264 0.215944 13.3721 0.0460217C12.7159 -0.016283 12.4493 -0.016283 11.7657 0.0516858ZM13.8165 1.94915C15.8057 2.36829 17.337 3.97122 17.337 5.63645V6.04993H12.6202H7.90337V5.63645C7.90337 5.40422 7.9649 5.02473 8.03326 4.79251C8.68951 2.67415 11.2598 1.41106 13.8165 1.94915ZM5.75005 10.2527L5.7022 12.6486L5.85943 12.8411C6.09185 13.1187 6.33794 13.249 6.68658 13.2829C7.08306 13.3226 7.49322 13.1527 7.70513 12.8638L7.86919 12.6486L7.8897 10.2527L7.91021 7.86243H12.6202H17.3301L17.3506 10.2527L17.3711 12.6486L17.5352 12.8638C17.7471 13.1527 18.1573 13.3226 18.5538 13.2829C18.8956 13.2546 19.1485 13.1187 19.3741 12.8468C19.5245 12.6599 19.5245 12.6542 19.5245 10.264V7.86243H20.584C21.6026 7.86243 21.6436 7.86809 21.7393 7.98704C21.8145 8.08333 21.9922 9.91282 22.4639 15.4466L23.0928 22.7816L22.9424 22.8835C22.7989 22.9798 22.3272 22.9855 12.6202 22.9855C2.91314 22.9855 2.44146 22.9798 2.29791 22.8835L2.14751 22.7816L2.77642 15.4466C3.2481 9.91282 3.42584 8.08333 3.50103 7.98704C3.59673 7.86809 3.63091 7.86243 4.69732 7.86243H5.79791L5.75005 10.2527Z"
+          fill="#8D3013"
+        />
+      </svg>
+      <p>Panier (0)</p>
+    </div>
+
+    <div class="cart-container" data-active="true">
+      <div class="cart-content">
+        <h3>Votre panier (0)</h3>
+      </div>
+    </div>
+
     <div class="header">
       <div class="grid">
         <div class="col-span-2">
-          <p>Furni</p>
+          <a href="/">Furni</a>
         </div>
         <div class="col-span-8 s-col-none"></div>
         <div class="col-span-2 t-align-right">
@@ -41,7 +63,43 @@
       <div class="grid">
         <div class="col-span-6">
           <div class="details-preview">
+            <!-- <div class="preview__controls">
+              <div class="controls__left">
+                <svg
+                  viewBox="0 0 16 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M15.2373 24.6243C14.6011 25.149 13.6019 25.1206 13.0054 24.561L1.16336 13.4499C0.593984 12.9157 0.593984 12.0843 1.16336 11.5501L13.0054 0.439058C13.6019 -0.120663 14.6011 -0.148997 15.2373 0.375724C15.8735 0.900446 15.9057 1.77933 15.3093 2.33878L4.47949 12.5L15.3093 22.6612C15.9057 23.2208 15.8735 24.0997 15.2373 24.6243Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
+
+              <div class="controls__right">
+                <svg
+                  viewBox="0 0 16 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.762735 0.375653C1.3989 -0.148985 2.39813 -0.120624 2.99456 0.438986L14.8366 11.5501C15.406 12.0843 15.406 12.9157 14.8366 13.4499L2.99456 24.5609C2.39813 25.1207 1.3989 25.149 0.762735 24.6243C0.12654 24.0996 0.0942981 23.2207 0.690735 22.6612L11.5205 12.5L0.690735 2.33882C0.0942981 1.77921 0.12654 0.900263 0.762735 0.375653Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
+            </div> -->
+
             <img src="./assets/img/details/orange/1.png" alt="chair" />
+
+            <button class="open__modal btn tertiary">
+              Visualiser le produit en 360°
+            </button>
           </div>
         </div>
 
@@ -190,7 +248,50 @@
           <div class="details-action">
             <button class="btn primary disabled">Ajouter au panier</button>
           </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="footer">
+      <div class="grid footer-links">
+        <div class="col-whitespace"></div>
+
+        <div class="col-span-6">
+          <div class="footer-item">
+            <div class="item__top-title">Navigation</div>
+            <div class="item__content">
+              <a href="/">Accueil</a>
+              <a href="/products">Nos produits</a>
+              <a href="#">Mentions légales</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-4">
+          <div class="footer-item">
+            <div class="item__top-title">Réseaux sociaux</div>
+            <div class="item__content">
+              <a href="#" target="_blank">Instagram</a>
+              <a href="#" target="_blank">Twitter/X</a>
+              <a href="#" target="_blank">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid footer-newsletter">
+        <div class="col-whitespace"></div>
+
+        <div class="col-span-5">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            convallis.
+          </p>
+
+          <div class="newsletter-field">
+            <input type="text" placeholder="Écrivez votre adresse e-mail" />
+            <button class="btn primary">S'inscrire</button>
+          </div>
         </div>
       </div>
     </div>

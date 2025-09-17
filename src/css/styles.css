@@ -186,7 +186,6 @@ p.btn {
   outline: none;
   border: none;
   padding: var(--light-gap);
-  border: 1px solid var(--secondary);
   cursor: pointer;
 }
 
@@ -198,6 +197,12 @@ p.btn {
 .btn.secondary {
   background-color: var(--primary);
   color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+
+.btn.tertiary {
+  border: 1px solid var(--primary-red);
+  color: var(--primary-red);
 }
 
 .btn.disabled {
@@ -237,14 +242,16 @@ p.btn {
   top: var(--global-padding);
   left: var(--global-padding);
   width: calc(100vw - var(--global-padding) * 2);
-  z-index: 999;
+  z-index: 99999;
   mix-blend-mode: difference;
   /* color: var(--primary); */
   /* display: flex;
   justify-content: space-between; */
 }
 
-.header p {
+.header p,
+.header a {
+  display: block;
   color: var(--primary);
 }
 
@@ -298,12 +305,94 @@ p.btn {
 }
 
 .footer-newsletter .newsletter-field {
+  display: flex;
+  flex-direction: row;
   margin-top: var(--light-gap);
 }
 
 .footer-newsletter .newsletter-field input {
+  flex: 1;
   padding: var(--light-gap);
   font-size: var(--xs);
   border-radius: 0;
   border: 1px solid var(--secondary);
+}
+
+/* cart */
+
+.button-cart {
+  position: fixed;
+  z-index: 999;
+  left: var(--grid-gap);
+  bottom: var(--grid-gap);
+
+  border: 1px solid var(--primary-red);
+  background-color: var(--primary);  
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--light-gap);
+
+  padding: var(--light-gap);
+  cursor: pointer;
+}
+
+.button-cart p {
+  font-size: var(--xs) !important;
+  color: var(--primary-red);
+}
+
+.cart-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--secondary-opacity);
+  top: 0;
+  right: 0;
+  z-index: 100000;
+  transition: opacity var(--basic-duration) var(--main-transition);
+  transform-origin: right;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cart-container .cart-content {
+  position: absolute;
+  background-color: var(--primary);
+  width: 50vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 100000;
+  transform: scaleX(0);
+  opacity: 1 !important;
+  transition: all var(--basic-duration) var(--main-transition);
+  transform-origin: right;
+
+  padding: var(--global-padding);
+}
+
+.cart-container[data-active="true"] .cart-content {
+  transform: scaleX(1);
+}
+
+.cart-container[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-content h3 {
+  position: relative;
+}
+
+.cart-content h3::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: calc(-1 * var(--light-gap));
+  display: block;
+  background-color: var(--secondary);
 }
