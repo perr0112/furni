@@ -11,7 +11,7 @@
 .products .select-item {
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: var(--light-gap);
 }
 
 .products .select-item .select-item__label {
@@ -20,7 +20,7 @@
 
 .products .select-item select {
     font-size: var(--xs);
-    padding: 10rem;
+    padding: var(--light-gap);
     -webkit-appearance: none;
     appearance: none;
     -moz-appearance: none;
@@ -28,4 +28,82 @@
     background-repeat: no-repeat;
     background-size: 14px 14px;
     background-position: calc(100% - 16px);
+}
+
+.grid[data-cards] {
+    margin-top: var(--biggest-gap-content);
+}
+
+.card-product {
+    position: relative;
+    user-select: none;
+}
+
+.cta {
+    margin-top: var(--gap-section);
+    text-align: center;
+}
+
+.cta a {
+    text-decoration: underline;
+    font-size: var(--t3);
+}
+
+.card-product-cover {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-product-cover[data-available="true"] .card-product__actions {
+    opacity: 0;
+}
+
+img.cover__img, .card-product__actions {
+    transition: all var(--basic-duration) var(--main-transition);
+}
+
+.card-product-cover[data-available="true"]:hover img.cover__img {
+    scale: 1.05;
+}
+
+.card-product-cover[data-available="true"]:hover .card-product__actions {
+    opacity: 1;
+}
+
+.card-product .card-product__actions {
+    position: absolute;
+    bottom: var(--global-padding);
+    right: var(--global-padding);
+}
+
+.card-product .card-product__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: calc(var(--light-gap) / 2);
+}
+
+.card-product .card-product__actions a {
+    display: block;
+}
+
+.card-product__title {
+    position: absolute;
+    top: var(--global-padding);
+    left: var(--global-padding);
+    z-index: 99;
+    display: flex;
+}
+
+.card-product__title p {
+    border-right: 1px solid black;
+}
+
+.card-product__title p,
+.card-product__title span {
+    padding: var(--light-gap);
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-size: var(--xs);
 }

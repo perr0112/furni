@@ -5,6 +5,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import { $, retrieveRootVariables } from "./scripts/utils/dom.js";
 import { initScrollProduct } from "./scripts/anims/home.js";
+import { initCards } from "./scripts/components/card.js";
+import { toggleGrid } from "./scripts/utils/grid.js";
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
@@ -53,9 +55,20 @@ function initFunctions() {
   initDom();
   initScrollProduct();
   initLenis();
+  console.log(location.pathname)
+
+  if (location.pathname === "/products") {
+    initCards();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("dom content loaded");
   initFunctions();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.shiftKey && event.key.toLowerCase() === "g") {
+    toggleGrid();
+  }
 });

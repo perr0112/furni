@@ -10,6 +10,7 @@
   display: grid;
   grid-template-columns: repeat(var(--grid-columns-mobile), minmax(0, 1fr));
   grid-column-gap: var(--grid-gap-mobile);
+  row-gap: var(--grid-gap);
 }
 
 .col-span-1 {
