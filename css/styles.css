@@ -46,6 +46,9 @@
   --secondary: #000000;
   --primary-red: #8d3013;
   --primary-green: #407375;
+  --primary-orange: #D0621A;
+
+  --secondary-opacity: rgba(0, 0, 0, 0.25);
 
   /* transitions */
   --main-transition: cubic-bezier(0.62, 0.05, 0.01, 0.99);
@@ -248,8 +251,8 @@ p.btn {
 /* Footer */
 
 .footer {
-  margin-top: var(--gap-section);
-  padding-bottom: var(--grid-gap);
+  margin-top: var(--big-gap-section);
+  padding-bottom: calc(var(--grid-gap) + var(--grid-width-col));
 }
 
 .footer-item {

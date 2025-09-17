@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furni</title>
+    <link rel="stylesheet" href="./css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="./css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="./css/grid.css" type="text/css" />
+    <link rel="stylesheet" href="./css/product.css" type="text/css" />
+  </head>
+  <body>
+    <div class="grid markers">
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+      <div class="col-span-1"></div>
+    </div>
+
+    <div class="header">
+      <div class="grid">
+        <div class="col-span-2">
+          <p>Furni</p>
+        </div>
+        <div class="col-span-8 s-col-none"></div>
+        <div class="col-span-2 t-align-right">
+          <p>Menu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="grid">
+        <div class="col-span-6">
+          <div class="details-preview">
+            <img src="./assets/img/details/orange/1.png" alt="chair" />
+          </div>
+        </div>
+
+        <div class="col-whitespace"></div>
+
+        <div class="col-span-5 details-content">
+          <div class="content__title">
+            <h1>Duis malesuada enim.</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+              malesuada enim sit amet ligula euismod viverra.
+            </p>
+          </div>
+
+          <div class="content-radios">
+            <div class="radio-item">
+              <p>Choix de la couleur</p>
+
+              <div class="item__choices circles">
+                <div>
+                  <input type="radio" id="black" name="color" value="black" />
+                  <div class="checkmark-outer">
+                    <div
+                      class="checkmark circle"
+                      style="--color: #000000"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <input type="radio" id="orange" name="color" value="orange" />
+                  <div class="checkmark-outer">
+                    <div
+                      class="checkmark circle"
+                      style="--color: #d0621a"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <input type="radio" id="white" name="color" value="white" />
+                  <div class="checkmark-outer">
+                    <div
+                      class="checkmark circle"
+                      style="
+                        --color: #ffffff;
+                        border: 1px solid var(--secondary-opacity);
+                      "
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <input type="radio" id="green" name="color" value="green" />
+                  <div class="checkmark-outer">
+                    <div
+                      class="checkmark circle"
+                      style="--color: #407375"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="radio-item">
+              <p>Choix du modèle</p>
+
+              <div class="item__choices lines">
+                <div>
+                  <input type="radio" id="xs" name="model" value="xs" />
+                  <div class="checkmark-outer">
+                    <div class="checkmark line">
+                      <span>Taille XS</span>
+                      <span>57,99 €</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <input type="radio" id="s" name="model" value="s" />
+                  <div class="checkmark-outer">
+                    <div class="checkmark line">
+                      <span>Taille S</span>
+                      <span>69,99 €</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <input type="radio" id="m" name="model" value="m" />
+                  <div class="checkmark-outer">
+                    <div class="checkmark line">
+                      <span>Taille M</span>
+                      <span>127,99 €</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <input type="radio" id="l" name="model" value="l" />
+                  <div class="checkmark-outer">
+                    <div class="checkmark line">
+                      <span>Taille L</span>
+                      <span>149,99 €</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="radio-item">
+              <p>Choix de la matière</p>
+
+              <div class="item__choices lines">
+                <div>
+                  <input
+                    type="radio"
+                    id="black"
+                    name="material"
+                    value="black"
+                  />
+                  <div class="checkmark-outer">
+                    <div class="checkmark line">
+                      <span>Lorem ipsum</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="orange"
+                    name="material"
+                    value="orange"
+                  />
+                  <div class="checkmark-outer">
+                    <div class="checkmark line">
+                      <span>Lorem ipsum</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="details-action">
+            <button class="btn primary disabled">Ajouter au panier</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

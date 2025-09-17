@@ -13,7 +13,7 @@ function createCard(data) {
   `
 
   const productNotAvailable = `
-    <p class="btn primary disabled">
+    <p class="btn primary disabled" style="display: flex; align-items: center; gap: 10rem;">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="7.5" cy="7.5" r="7" stroke="white"/>
             <line x1="13.0987" y1="2.59525" x2="2.49207" y2="13.2019" stroke="white"/>

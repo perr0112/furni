@@ -55,20 +55,22 @@
     overflow: hidden;
 }
 
-.card-product-cover[data-available="true"] .card-product__actions {
-    opacity: 0;
-}
-
 img.cover__img, .card-product__actions {
     transition: all var(--basic-duration) var(--main-transition);
 }
 
-.card-product-cover[data-available="true"]:hover img.cover__img {
-    scale: 1.05;
-}
+@media screen and (min-width: 1000px) {
+    .card-product-cover[data-available="true"] .card-product__actions {
+        opacity: 0;
+    }
 
-.card-product-cover[data-available="true"]:hover .card-product__actions {
-    opacity: 1;
+    .card-product-cover[data-available="true"]:hover img.cover__img {
+        scale: 1.05;
+    }
+    
+    .card-product-cover[data-available="true"]:hover .card-product__actions {
+        opacity: 1;
+    }   
 }
 
 .card-product .card-product__actions {
