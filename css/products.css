@@ -1,0 +1,31 @@
+.products {
+    margin-top: var(--gap-section);
+}
+
+/* select */
+
+.grid.filters {
+    margin-top: var(--gap-content);
+}
+
+.products .select-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.products .select-item .select-item__label {
+    font-size: var(--xs);
+}
+
+.products .select-item select {
+    font-size: var(--xs);
+    padding: 10rem;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 16px);
+}

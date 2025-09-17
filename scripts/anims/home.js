@@ -6,6 +6,8 @@ import { BASIC_DURATION, primaryEase } from "../../data/constants";
 
 export function initScrollProduct() {
   const productSection = $(".product");
+  if (!productSection) return;
+
   const gridWidthCol = retrieveRootVariables(document.body, "--grid-width-col");
   const gridGap = retrieveRootVariables(document.body, "--grid-gap");
   const finalWidthProduct =

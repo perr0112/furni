@@ -1,8 +1,9 @@
+import Lenis from "lenis";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import { retrieveRootVariables } from "./scripts/utils/dom.js";
+import { $, retrieveRootVariables } from "./scripts/utils/dom.js";
 import { initScrollProduct } from "./scripts/anims/home.js";
 
 gsap.registerPlugin(CustomEase);
@@ -10,12 +11,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
 
-function initDom() {
+function initVariables() {
+  const gridCol = $(".col-span-1") || "8O";
   const gridGapWidth = retrieveRootVariables(document.body, "--global-padding");
-  const gridColWidth = document.querySelector(".col-whitespace").offsetWidth;
+  const gridColWidth = gridCol.offsetWidth;
 
-  document.body.style.setProperty("--grid-width-col", gridColWidth + "px");
+  document.body.style.setProperty("--grid-width-col", `${gridColWidth}px`);
   document.body.style.setProperty("--grid-gap", gridGapWidth);
+}
+
+function initTitlesWithNumber() {
+  const titlesWithAfter = document.querySelectorAll('h1[data-title-after]')
+  titlesWithAfter.forEach((title) => {
+    const value = title.dataset.value;
+    console.log('===', value)
+  })
+
+  console.log(titlesWithAfter)
+}
+
+function initDom() {
+  initVariables();
+  initTitlesWithNumber();
 }
 
 function initLenis() {
