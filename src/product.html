@@ -58,7 +58,7 @@
               <div class="content__body">
                 <p>Modèle S</p>
               </div>
-              <p>127,99€</p>
+              <p>127.99€</p>
             </div>
           </div>
 
@@ -71,7 +71,7 @@
               <div class="content__body">
                 <p>Modèle S</p>
               </div>
-              <p>127,99€</p>
+              <p>127.99€</p>
             </div>
           </div>
 
@@ -207,45 +207,27 @@
               <p>Choix du modèle</p>
 
               <div class="item__choices lines">
-                <div>
-                  <input type="radio" id="xs" name="model" value="xs" />
-                  <div class="checkmark-outer">
-                    <div class="checkmark line">
-                      <span>Taille XS</span>
-                      <span>57,99 €</span>
-                    </div>
-                  </div>
-                </div>
 
                 <div>
-                  <input type="radio" id="s" name="model" value="s" />
+                  <input type="radio" id="s" name="model" value="s" data-price="69.99" />
                   <div class="checkmark-outer">
                     <div class="checkmark line">
                       <span>Taille S</span>
-                      <span>69,99 €</span>
+                      <span>69.99 €</span>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <input type="radio" id="m" name="model" value="m" />
+                  <input type="radio" id="m" name="model" value="m" data-price="127.99" />
                   <div class="checkmark-outer">
                     <div class="checkmark line">
                       <span>Taille M</span>
-                      <span>127,99 €</span>
+                      <span>127.99 €</span>
                     </div>
                   </div>
                 </div>
 
-                <div>
-                  <input type="radio" id="l" name="model" value="l" />
-                  <div class="checkmark-outer">
-                    <div class="checkmark line">
-                      <span>Taille L</span>
-                      <span>149,99 €</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -259,10 +241,12 @@
                     id="black"
                     name="material"
                     value="black"
+                    data-price="12.99"
                   />
                   <div class="checkmark-outer">
                     <div class="checkmark line">
                       <span>Lorem ipsum</span>
+                      <span>+12.99€</span>
                     </div>
                   </div>
                 </div>
@@ -273,10 +257,12 @@
                     id="orange"
                     name="material"
                     value="orange"
+                    data-price="24.99"
                   />
                   <div class="checkmark-outer">
                     <div class="checkmark line">
                       <span>Lorem ipsum</span>
+                      <span>+24.99€</span>
                     </div>
                   </div>
                 </div>
@@ -285,7 +271,6 @@
           </div>
 
           <div class="details-action">
-            <p></p>
             <button class="btn primary disabled">Ajouter au panier</button>
           </div>
 

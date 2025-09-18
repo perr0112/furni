@@ -8,6 +8,7 @@ import { initScrollProduct } from "./scripts/anims/home.js";
 import { initCards } from "./scripts/components/card.js";
 import { toggleGrid } from "./scripts/utils/grid.js";
 import { customCursor } from "./scripts/utils/actions.js";
+import { initProductPage } from "./scripts/product.js";
 
 let scroll;
 
@@ -85,6 +86,7 @@ function initFunctions() {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("dom content loaded");
   initFunctions();
+  if (document.querySelector(".details")) initProductPage();
 });
 
 document.addEventListener("keydown", (event) => {
