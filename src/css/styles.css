@@ -13,7 +13,7 @@
 
 :root {
   /* font-sizes */
-  --context: 1040;
+  --context: 1240;
   --xxl: 380rem;
   --xl: 70rem;
   --l: 40rem;
@@ -106,6 +106,10 @@ a {
   text-decoration: none;
   color: inherit;
   font-size: var(--p);
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 body {
@@ -344,7 +348,7 @@ p.btn {
 }
 
 .cart-container {
-  position: fixed;
+  /* position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: var(--secondary-opacity);
@@ -355,7 +359,24 @@ p.btn {
   transform-origin: right;
 
   opacity: 0;
+  visibility: hidden; */
+  transition: none;
+  opacity: 1;
   visibility: hidden;
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+}
+
+.cart-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  left: 0;
+  background-color: var(--secondary-opacity);
+  opacity: 0;
+  transition: opacity var(--basic-duration) var(--main-transition);
+  pointer-events: none;
 }
 
 .cart-container .cart-content {
@@ -379,6 +400,14 @@ p.btn {
   justify-content: space-between;
 
   overflow: hidden;
+}
+
+.cart-container[data-active="true"] {
+  visibility: visible;
+}
+
+.cart-container[data-active="true"]::before {
+  opacity: 1;
 }
 
 .cart-container[data-active="true"] .cart-content {

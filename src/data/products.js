@@ -8,13 +8,13 @@ available: boolean
 export const products = [
     {
         name: 'Lorem ipsum',
-        price: '117,99€',
+        price: '44,99€',
         img: 'green',
         available: true,
     },
     {
         name: 'Lorem ipsum',
-        price: '47,99€',
+        price: '44,99€',
         img: 'orange',
         available: true,
     },
@@ -31,3 +31,23 @@ export const products = [
         available: false,
     },
 ]
+
+export const PRODUCT_DATA = {
+    basePrice: 44.99,
+    options: {
+        color: [
+            { id: "black", value: "black" },
+            { id: "orange", value: "orange", checked: true },
+            { id: "white", value: "white" },
+            { id: "green", value: "green" },
+        ],
+        model: [
+            { id: "s", value: "s", price: 69.99, checked: true },
+            { id: "m", value: "m", price: 127.99 },
+        ],
+        material: [
+            { id: "laine", value: "laine", price: 12.99 },
+            { id: "velours", value: "velours", price: 24.99 }
+        ]
+    }
+}

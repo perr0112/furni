@@ -15,3 +15,10 @@ export const hasAttribute = (element, attribute = "name") => {
   return element.hasAttribute(attribute);
 };
 
+export const getSelectedRadio = (name) => {
+  return document.querySelector(`input[name="${name}"]:checked`);
+};
+
+export const toggleCart = (element, state) => {
+  element.dataset.active = !state;
+};

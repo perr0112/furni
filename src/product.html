@@ -78,7 +78,7 @@
         </div>
 
         <div class="content__actions">
-          <button class="btn secondary">Vider le panier</button>
+          <button class="btn secondary" data-delete-cart>Vider le panier</button>
           <button class="btn primary">Procéder au paiement</button>
         </div>
 
@@ -101,37 +101,6 @@
       <div class="grid">
         <div class="col-span-6">
           <div class="details-preview">
-            <!-- <div class="preview__controls">
-              <div class="controls__left">
-                <svg
-                  viewBox="0 0 16 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M15.2373 24.6243C14.6011 25.149 13.6019 25.1206 13.0054 24.561L1.16336 13.4499C0.593984 12.9157 0.593984 12.0843 1.16336 11.5501L13.0054 0.439058C13.6019 -0.120663 14.6011 -0.148997 15.2373 0.375724C15.8735 0.900446 15.9057 1.77933 15.3093 2.33878L4.47949 12.5L15.3093 22.6612C15.9057 23.2208 15.8735 24.0997 15.2373 24.6243Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
-
-              <div class="controls__right">
-                <svg
-                  viewBox="0 0 16 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M0.762735 0.375653C1.3989 -0.148985 2.39813 -0.120624 2.99456 0.438986L14.8366 11.5501C15.406 12.0843 15.406 12.9157 14.8366 13.4499L2.99456 24.5609C2.39813 25.1207 1.3989 25.149 0.762735 24.6243C0.12654 24.0996 0.0942981 23.2207 0.690735 22.6612L11.5205 12.5L0.690735 2.33882C0.0942981 1.77921 0.12654 0.900263 0.762735 0.375653Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
-            </div> -->
 
             <img src="./assets/img/details/orange/1.png" alt="chair" />
 
@@ -145,8 +114,8 @@
 
         <div class="col-span-5 details-content">
           <div class="content__title">
-            <p class="title__price">Prix total: <span>blabla</span></p>
-            <h1>Duis malesuada enim.</h1>
+            <p class="title__price">Prix total: <span></span></p>
+            <h1 data-name-product>Duis malesuada enim.</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
               malesuada enim sit amet ligula euismod viverra.
@@ -154,120 +123,6 @@
           </div>
 
           <div class="content-radios">
-            <div class="radio-item">
-              <p>Choix de la couleur</p>
-
-              <div class="item__choices circles">
-                <div>
-                  <input type="radio" id="black" name="color" value="black" />
-                  <div class="checkmark-outer">
-                    <div
-                      class="checkmark circle"
-                      style="--color: #000000"
-                    ></div>
-                  </div>
-                </div>
-
-                <div>
-                  <input type="radio" id="orange" name="color" value="orange" />
-                  <div class="checkmark-outer">
-                    <div
-                      class="checkmark circle"
-                      style="--color: #d0621a"
-                    ></div>
-                  </div>
-                </div>
-
-                <div>
-                  <input type="radio" id="white" name="color" value="white" />
-                  <div class="checkmark-outer">
-                    <div
-                      class="checkmark circle"
-                      style="
-                        --color: #ffffff;
-                        border: 1px solid var(--secondary-opacity);
-                      "
-                    ></div>
-                  </div>
-                </div>
-
-                <div>
-                  <input type="radio" id="green" name="color" value="green" />
-                  <div class="checkmark-outer">
-                    <div
-                      class="checkmark circle"
-                      style="--color: #407375"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="radio-item">
-              <p>Choix du modèle</p>
-
-              <div class="item__choices lines">
-
-                <div>
-                  <input type="radio" id="s" name="model" value="s" data-price="69.99" />
-                  <div class="checkmark-outer">
-                    <div class="checkmark line">
-                      <span>Taille S</span>
-                      <span>69.99 €</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <input type="radio" id="m" name="model" value="m" data-price="127.99" />
-                  <div class="checkmark-outer">
-                    <div class="checkmark line">
-                      <span>Taille M</span>
-                      <span>127.99 €</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="radio-item">
-              <p>Choix de la matière</p>
-
-              <div class="item__choices lines">
-                <div>
-                  <input
-                    type="radio"
-                    id="black"
-                    name="material"
-                    value="black"
-                    data-price="12.99"
-                  />
-                  <div class="checkmark-outer">
-                    <div class="checkmark line">
-                      <span>Lorem ipsum</span>
-                      <span>+12.99€</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <input
-                    type="radio"
-                    id="orange"
-                    name="material"
-                    value="orange"
-                    data-price="24.99"
-                  />
-                  <div class="checkmark-outer">
-                    <div class="checkmark line">
-                      <span>Lorem ipsum</span>
-                      <span>+24.99€</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="details-action">

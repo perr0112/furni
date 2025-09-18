@@ -3,12 +3,15 @@ import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import { $, retrieveRootVariables } from "./scripts/utils/dom.js";
+import { $, retrieveRootVariables, toggleCart } from "./scripts/utils/dom.js";
 import { initScrollProduct } from "./scripts/anims/home.js";
 import { initCards } from "./scripts/components/card.js";
 import { toggleGrid } from "./scripts/utils/grid.js";
-import { customCursor } from "./scripts/utils/actions.js";
 import { initProductPage } from "./scripts/product.js";
+
+import "./scripts/utils/localStorage.js";
+import { renderOptions } from "./scripts/options.js";
+import { PRODUCT_DATA } from "./data/products.js";
 
 let scroll;
 
@@ -44,9 +47,9 @@ function initLenis() {
   gsap.ticker.lagSmoothing(0);
 }
 
-const toggleCart = (cartContainer, active) => {
-  cartContainer.dataset.active = !active
-}
+// const toggleCart = (cartContainer, active) => {
+//   cartContainer.dataset.active = !active
+// }
 
 function initCart() {
   const buttonCart = $("#button-cart");
@@ -86,7 +89,11 @@ function initFunctions() {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("dom content loaded");
   initFunctions();
-  if (document.querySelector(".details")) initProductPage();
+
+  if (document.querySelector(".details")) {
+      renderOptions(PRODUCT_DATA);
+      initProductPage();
+  }
 });
 
 document.addEventListener("keydown", (event) => {

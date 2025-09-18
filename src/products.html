@@ -25,10 +25,10 @@
       <div class="col-span-1"></div>
     </div>
 
-    <div class="button-cart">
+    <div class="button-cart" id="button-cart">
       <svg
-        width="20"
-        height="20"
+        width="14"
+        height="14"
         viewBox="0 0 26 25"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +39,50 @@
         />
       </svg>
       <p>Panier (0)</p>
+    </div>
+
+    <div class="cart-container" data-active="false">
+      <div class="cart-content">
+
+        <div class="content__title">
+          <h3>Votre panier (0)</h3>
+        </div>
+
+        <div class="content__body">
+          <div class="item">
+            <div class="item__img">
+              <img src="./assets/img/details/green/1.png" alt="img" />
+            </div>
+            <div class="item__content">
+              <p class="content__title">Lorem ipsum</p>
+              <div class="content__body">
+                <p>Modèle S</p>
+              </div>
+              <p>127.99€</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item__img">
+              <img src="./assets/img/details/green/1.png" alt="img" />
+            </div>
+            <div class="item__content">
+              <p class="content__title">Lorem ipsum</p>
+              <div class="content__body">
+                <p>Modèle S</p>
+              </div>
+              <p>127.99€</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="content__actions">
+          <button class="btn secondary" data-delete-cart>Vider le panier</button>
+          <button class="btn primary">Procéder au paiement</button>
+        </div>
+
+      </div>
     </div>
 
     <div class="header">
