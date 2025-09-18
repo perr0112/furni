@@ -98,4 +98,8 @@ img {
   .s-col-none {
     display: none !important;
   }
+
+  .s-none {
+    display: none !important;
+  }
 }

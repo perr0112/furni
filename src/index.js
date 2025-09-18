@@ -55,7 +55,6 @@ function initCart() {
   const buttonCart = $("#button-cart");
   const cartContainer = $(".cart-container");
 
-  console.log(buttonCart);
   if (!buttonCart) return;
 
   buttonCart.addEventListener("click", () => {
@@ -79,7 +78,6 @@ function initFunctions() {
   initScrollProduct();
   initLenis();
   initCart();
-  console.log(location.pathname);
 
   if (location.pathname === "/products") {
     initCards();

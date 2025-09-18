@@ -103,6 +103,7 @@ html {
 }
 
 a {
+  width: max-content;
   text-decoration: none;
   color: inherit;
   font-size: var(--p);
@@ -449,20 +450,41 @@ p.btn {
 .content__body .item {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: var(--light-gap);
   padding-bottom: var(--light-gap);
 }
 
 .item__content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--light-gap);
 }
 
+.item__content .item__body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.item__body .body__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p[data-delete-product] {
+  margin-bottom: var(--light-gap);
+  cursor: pointer;
+}
+
+p[data-delete-product]:hover {
+  text-decoration: underline;
+}
+
 .item__content .content__title {
-  font-size: var(--m);
+  font-size: var(--s);
+  margin-bottom: var(--light-gap);
 }
 
 .content__body .item::before {
@@ -488,5 +510,9 @@ p.btn {
 @media screen and (max-width: 1000px) {
   .cart-container .cart-content {
     width: 75vw;
+  }
+
+  .grid.footer-links div:last-child {
+    margin-top: var(--gap-content);
   }
 }

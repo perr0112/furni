@@ -4,12 +4,13 @@ import { $ } from "./dom";
 
 // const key_localstorage = "panier";
 
-const deleteCartButton = $("[data-delete-cart]")
+const deleteCartButton = $("[data-delete-cart]");
 
 const CART_KEY = "panier";
-const pathToImg = "./assets/img/products/";
+const pathToImg = "./assets/img/details/";
 
 const readCart = () => JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+const cartBody = $(".cart-content .content__body");
 
 function renderCartCount() {
   const length = readCart().length;
@@ -20,26 +21,34 @@ function renderCartCount() {
 }
 
 function renderCartBody() {
-  const cartBody = $(".cart-content .content__body");
   if (!cartBody) return;
 
   const items = readCart();
-  console.log("@@@@@@@@@", items)
 
-  cartBody.innerHTML = items.map(({ productName, color, model, material, price }) => `
-    <div class="item">
-      <div class="item__content">
-        <p class="content__title">${productName || "Produit"}</p>
-        <div class="content__body">
-          <div class="item__img">
-            <img src="${pathToImg + color + '.png'}" alt="${productName}" />
+  cartBody.innerHTML = items
+    .map(
+      ({ id, productName, color, model, material, price }) => `
+  <div class="item">
+    <div class="item__content">
+      <div class="item__img">
+        <img src="${pathToImg + color + ".png"}" alt="${productName}" />
+      </div>
+      <div class="item__body">
+        <div class="body__details">
+          <div>
+            <p class="content__title">${productName || "Produit"}</p>
+            <p>Modèle ${model.toUpperCase()} en ${color}</p>
+            <p>En ${material}</p>
           </div>
-          <p>Modèle ${model}, ${material}.</p>
+          <p data-delete-product data-id="${id}">Supprimer</p>
         </div>
-        <p>${price}€</p>
+        <div class="body__price">
+          <p>${price}€</p>
+        </div>
       </div>
     </div>
-  `).join(""); // ","
+  </div>
+`).join(""); // ","
 }
 
 function renderCart() {
@@ -68,5 +77,17 @@ if (deleteCartButton) {
     e.preventDefault();
     localStorage.removeItem("panier");
     if (typeof renderCart === "function") renderCart();
+  });
+}
+
+if (cartBody) {
+  cartBody.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-delete-product]");
+    if (!btn) return;
+
+    const id = btn.dataset.id;
+    const items = readCart().filter((it) => String(it.id) !== String(id));
+
+    localStorage.setItem(CART_KEY, JSON.stringify(items));
   });
 }

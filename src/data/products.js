@@ -36,10 +36,10 @@ export const PRODUCT_DATA = {
     basePrice: 44.99,
     options: {
         color: [
-            { id: "black", value: "black" },
+            { id: "noir", value: "noir" },
             { id: "orange", value: "orange", checked: true },
-            { id: "white", value: "white" },
-            { id: "green", value: "green" },
+            { id: "blanc", value: "blanc" },
+            { id: "vert", value: "vert" },
         ],
         model: [
             { id: "s", value: "s", price: 69.99, checked: true },

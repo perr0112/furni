@@ -3,15 +3,15 @@ import { $ } from "./utils/dom";
 const COLOR_HEX = {
     black: "#000000",
     orange: "#d0621a",
-    white: "#ffffff",
-    green: "#407375",
+    blanc: "#ffffff",
+    vert: "#407375",
 };
 
 const renderColor = (option) => `
   <div>
     <input type="radio" id="${option.id}" name="color" value="${option.value}" ${option.checked ? "checked": ""}/>
     <label class="checkmark-outer" for="${option.id}">
-      <div class="checkmark circle" style="--color:${COLOR_HEX[option.value]||"#000"};${option.value==="white"?"border:1px solid var(--secondary-opacity);":""}"></div>
+      <div class="checkmark circle" style="--color:${COLOR_HEX[option.value]||"#000"};${option.value==="blanc"?"border:1px solid var(--secondary-opacity);":""}"></div>
     </label>
   </div>
 `;
