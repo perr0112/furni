@@ -41,9 +41,47 @@
       <p>Panier (0)</p>
     </div>
 
-    <div class="cart-container" data-active="true">
+    <div class="cart-container" data-active="false">
       <div class="cart-content">
-        <h3>Votre panier (0)</h3>
+
+        <div class="content__title">
+          <h3>Votre panier (0)</h3>
+        </div>
+
+        <div class="content__body">
+          <div class="item">
+            <div class="item__img">
+              <img src="./assets/img/details/green/1.png" alt="img" />
+            </div>
+            <div class="item__content">
+              <p class="content__title">Lorem ipsum</p>
+              <div class="content__body">
+                <p>Modèle S</p>
+              </div>
+              <p>127,99€</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item__img">
+              <img src="./assets/img/details/green/1.png" alt="img" />
+            </div>
+            <div class="item__content">
+              <p class="content__title">Lorem ipsum</p>
+              <div class="content__body">
+                <p>Modèle S</p>
+              </div>
+              <p>127,99€</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="content__actions">
+          <button class="btn secondary">Vider le panier</button>
+          <button class="btn primary">Procéder au paiement</button>
+        </div>
+
       </div>
     </div>
 
@@ -107,6 +145,7 @@
 
         <div class="col-span-5 details-content">
           <div class="content__title">
+            <p class="title__price">Prix total: <span>blabla</span></p>
             <h1>Duis malesuada enim.</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -246,8 +285,10 @@
           </div>
 
           <div class="details-action">
+            <p></p>
             <button class="btn primary disabled">Ajouter au panier</button>
           </div>
+
         </div>
       </div>
     </div>

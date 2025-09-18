@@ -63,7 +63,11 @@
   margin-top: calc(var(--gap-section) / 2);
 }
 
-.details-content .content__title p {
+.content__title .title__price span {
+  font-size: var(--p);
+}
+
+.details-content .content__title p:last-child {
   margin-top: var(--gap-content);
 }
 
