@@ -17,18 +17,3 @@ Le site est déployé sur Vercel et accessible à l'adresse suivante : [https://
 ### Arborescence
 
 ![architecture.png](./README/img/architecture.png)
-
-## Fonctionnalités
-
-### Indispensables
-- [x] Sélection des options produit
-- [x] Aperçu visuel en temps réel
-- [x] Calcul automatique du prix
-- [x] Ajout au panier
-- [x] Gestion du panier
-
-### Souhaitables
-- [x] Rotation 360° du produit
-- [ ] Partage sur réseaux sociaux
-- [ ] Sauvegarde des configurations
-- [ ] Recommandations personnalisées
