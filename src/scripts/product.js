@@ -1,7 +1,8 @@
 import gsap from "gsap";
 import { BASIC_DURATION } from "../data/constants";
-import { $, getAttribute, getSelectedRadio, toggleCart } from "./utils/dom";
-import { cancelClick, enableClick } from "./utils/actions";
+import { $, getAttribute, getSelectedRadio, toggleActive } from "./utils/dom";
+import { cancelClick, enableClick, stopScroll } from "./utils/actions";
+import { initScene } from "./components/scene";
 
 const addToCartBtn = $(".details-action .btn");
 const priceText = $(".title__price span");
@@ -85,7 +86,7 @@ const addToCart = () => {
   addToCartBtn.classList.add("disabled");
 
   setTimeout(() => {
-    toggleCart(cartContainer, cartContainer.dataset.active === "true");
+    toggleActive(cartContainer, cartContainer.dataset.active === "true");
   }, 100);
 };
 
@@ -127,6 +128,32 @@ function updateImg(input) {
     ">"
   );
 }
+
+// modal + vue 360
+//////////////////
+
+const buttonsToggleModal = document.querySelectorAll("[data-toggle-modal]")
+const modal = $(".modal")
+console.log(buttonsToggleModal, modal)
+
+if (buttonsToggleModal.length) {
+  buttonsToggleModal.forEach((button) => {
+    button.addEventListener("click", () => {
+      toggleActive(modal, modal.dataset.active === "true")
+
+      if (modal.getAttribute("data-active") === "true") {
+        console.log('true')
+        initScene();
+      } else {
+        removeScene();
+      }
+    })
+  })
+}
+
+//////////////////
+//////////////////
+
 
 /* Point d'entrée de la page product */
 export function initProductPage() {

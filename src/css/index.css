@@ -53,6 +53,10 @@
     margin-top: var(--large-gap-content);
   }
 
+  .about__content p, .about__cta a {
+    font-size: var(--s);
+  }
+
   .about__cta {
     margin-top: var(--large-gap-content);
   }

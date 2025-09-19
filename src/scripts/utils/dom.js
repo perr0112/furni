@@ -19,6 +19,6 @@ export const getSelectedRadio = (name) => {
   return document.querySelector(`input[name="${name}"]:checked`);
 };
 
-export const toggleCart = (element, state) => {
+export const toggleActive = (element, state) => {
   element.dataset.active = !state;
 };

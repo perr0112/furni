@@ -40,12 +40,15 @@
 }
 
 .cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: var(--gap-section);
-    text-align: center;
 }
 
 .cta a {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: var(--t3);
 }
 

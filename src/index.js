@@ -3,7 +3,7 @@ import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import { $, retrieveRootVariables, toggleCart } from "./scripts/utils/dom.js";
+import { $, retrieveRootVariables, toggleActive } from "./scripts/utils/dom.js";
 import { initScrollProduct } from "./scripts/anims/home.js";
 import { initCards } from "./scripts/components/card.js";
 import { toggleGrid } from "./scripts/utils/grid.js";
@@ -47,10 +47,6 @@ function initLenis() {
   gsap.ticker.lagSmoothing(0);
 }
 
-// const toggleCart = (cartContainer, active) => {
-//   cartContainer.dataset.active = !active
-// }
-
 function initCart() {
   const buttonCart = $("#button-cart");
   const cartContainer = $(".cart-container");
@@ -62,13 +58,13 @@ function initCart() {
     // scroll.stop();
 
     // cartContainer.dataset.active = cartContainer.dataset.active === "true" ? false : true;
-    toggleCart(cartContainer, cartContainer.dataset.active === "true")
+    toggleActive(cartContainer, cartContainer.dataset.active === "true")
   });
 
   cartContainer.addEventListener("click", (e) => {
     const target = e.target;
     if (target === cartContainer) {
-      toggleCart(cartContainer, cartContainer.dataset.active  === "true")
+      toggleActive(cartContainer, cartContainer.dataset.active  === "true")
     }
   })
 }

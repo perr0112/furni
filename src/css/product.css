@@ -178,3 +178,63 @@
 #imgProduct {
   transition: opacity .25s ease;
 }
+
+/* modal */
+
+.modal {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  width: calc(100vw + var(--global-padding));
+  height: calc(100vh + var(--global-padding));
+  background-color: var(--secondary-opacity);
+  z-index: 99999999;
+
+  top: calc(-1 * var(--global-padding));
+  left: calc(-1 * var(--global-padding));
+
+  transition: all var(--basic-duration) var(--main-transition);
+}
+
+.modal[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--primary);
+
+  width: 75%;
+  height: 75%;
+}
+
+.content__webgl {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modal__toggle {
+  position: absolute;
+  font-size: var(--s);
+  background-color: var(--primary);
+  z-index: 9999999999;
+  border-radius: 50%;
+  width: 50rem;
+  aspect-ratio: 1;
+  top: -10rem;
+  left: -10rem;
+  padding: calc(var(--light-gap) / 2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
