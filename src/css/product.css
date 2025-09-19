@@ -188,7 +188,7 @@
   width: calc(100vw + var(--global-padding));
   height: calc(100vh + var(--global-padding));
   background-color: var(--secondary-opacity);
-  z-index: 99999999;
+  z-index: 999999;
 
   top: calc(-1 * var(--global-padding));
   left: calc(-1 * var(--global-padding));

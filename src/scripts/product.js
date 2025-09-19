@@ -78,18 +78,19 @@ const addToCart = () => {
   current.push(item);
   localStorage.setItem(key_localstorage, JSON.stringify(current));
 
-  // Reset des options courantes
-  requiredOptions.forEach((name) => {
-    const sel = getSelectedRadio(name);
-    if (sel) sel.checked = false;
-  });
-
-  priceText.textContent = "";
   addToCartBtn.classList.add("disabled");
 
   setTimeout(() => {
     toggleActive(cartContainer, cartContainer.dataset.active === "true");
   }, 100);
+
+  setTimeout(() => {
+    priceText.textContent = "";
+    requiredOptions.forEach((name) => {
+      const sel = getSelectedRadio(name);
+      if (sel) sel.checked = false;
+    });
+  }, 900)
 };
 
 function preload(url) {

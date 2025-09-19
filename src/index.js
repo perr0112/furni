@@ -29,8 +29,20 @@ function initVariables() {
   document.body.style.setProperty("--grid-gap", gridGapWidth);
 }
 
+function initMenu() {
+  const allMenuToggle = document.querySelectorAll("[data-toggle-menu]")
+  const menuContent = $("[data-menu-content]")
+
+  allMenuToggle.forEach((menuButton) => {
+    menuButton.addEventListener("click", () => {
+      toggleActive(menuContent, menuContent.dataset.active === "true")
+    })
+  })
+}
+
 function initDom() {
   initVariables();
+  initMenu();
 }
 
 function initLenis() {

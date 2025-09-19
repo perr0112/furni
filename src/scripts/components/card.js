@@ -8,8 +8,7 @@ function createCard(data) {
   const { name, price, img, available } = data;
 
   const productAvailable = `
-    <a href="/product" class="btn secondary">Voir le produit</a>
-    <a href="/product" class="btn primary">Ajouter au panier</a>
+    <a href="/product" class="btn primary">Voir le produit</a>
   `
 
   const productNotAvailable = `
