@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
 
 function initVariables() {
-  const gridCol = $(".col-span-1") || "8O";
+  const gridCol = $(".col-whitespace") || 80;
   const gridGapWidth = retrieveRootVariables(document.body, "--global-padding");
   const gridColWidth = gridCol.offsetWidth;
 
