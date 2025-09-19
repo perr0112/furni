@@ -29,6 +29,18 @@ a pour vision d’élargir sa clientèle et cette vision est possible grâce au 
 
 Le site est déployé sur Vercel et accessible à l'adresse suivante : [https://furni-2025.vercel.app/](https://furni-2025.vercel.app/)
 
+## Charte graphique
+
+- Palette de couleurs
+
+![palette.png](./README/charte/colors.png)
+
+- Typographies
+
+![font.png](./README/charte/font.png)
+
+
+
 ## Technologies et outils utilisés
 
 - Frontend : HTML, CSS, JavaScript
