@@ -17,3 +17,7 @@ Le site est déployé sur Vercel et accessible à l'adresse suivante : [https://
 ### Arborescence
 
 ![architecture.png](./README/img/architecture.png)
+
+### Pages finales
+
+[PAGES.md](./README/PAGES.md)
