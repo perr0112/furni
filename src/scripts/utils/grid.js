@@ -1,7 +1,6 @@
 import gsap from "gsap";
 
 import { $ } from "./dom";
-
 import { BASIC_DURATION } from "../../data/constants";
 
 export function toggleGrid() {

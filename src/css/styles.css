@@ -273,7 +273,7 @@ p.btn {
 /*********************/
 /*********************/
 
-.grid.markers {
+/* .grid.markers {
   position: fixed;
   margin-inline: var(--global-padding);
   left: 0;
@@ -283,16 +283,17 @@ p.btn {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  /* visibility: hidden; */
 }
 
 .grid.markers div {
-  /* height: 100%; */
-  /* width: 100%; */
   background-color: rgba(255, 0, 0, 0.15);
-  /* transition: all var(--basic-duration) var(--main-transition); */
   transform-origin: bottom;
+  will-change: transform;
 }
+
+.grid.markers[data-hidden="true"] > div {
+  transform: scaleY(0);
+} */
 
 /* Header */
 
