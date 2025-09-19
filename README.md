@@ -2,7 +2,7 @@
 
 # Furni - 2025 ©
 
-Furni est un site e-commerce spécialisé dans la vente de meubles et d'articles de décoration pour la maison.
+Furni est un site e-commerce spécialisé dans la vente de meubles et d'articles de décoration.
 
 ## Contexte
 
@@ -25,10 +25,6 @@ a pour vision d’élargir sa clientèle et cette vision est possible grâce au 
 | **Le professionnel créatif** (producteur de cinéma et théâtre) | 25-40 ans | Recherche de fauteuils uniques pour un décor et pour une ambiance rafinée. Importance pour la personnalisation du bien. | Effectue des recherches en ligne sur mesure, aime découvrir des visuels immersifs tout en exigeant une certaine qualité. |
 | **Le particulier classique** | 30-45 ans | Souhait d’investir dans un mobilier élégant, durable et soigné pour son salon. Cherche une expérience afin de visualiser son futur fauteuil dans différents types d’environnement. | Parcourt les différents sites e-commerce tout en comparant les options de personnalisation ainsi que les avis. |
 
-## Déploiement
-
-Le site est déployé sur Vercel et accessible à l'adresse suivante : [https://furni-2025.vercel.app/](https://furni-2025.vercel.app/)
-
 ## Charte graphique
 
 - Palette de couleurs
@@ -47,7 +43,7 @@ Le site est déployé sur Vercel et accessible à l'adresse suivante : [https://
 - Animations : Three.js (3D) et GSAP
 - Vite : outil de build et de déploiement
 - Figma
-- Vercel
+- Vercel : le site est déployé [https://furni-jade.vercel.app/](ici)
 - Modèle 3D format GLTF (https://github.com/KhronosGroup/glTF-Sample-Assets)
 
 ## Organisation technique
