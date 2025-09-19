@@ -121,6 +121,12 @@
   z-index: 99;
 }
 
+.radio-item .radio-item__size {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .item__choices.lines {
   display: flex;
   flex-direction: column;

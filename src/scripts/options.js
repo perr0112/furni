@@ -43,7 +43,10 @@ export function renderOptions(PRODUCT_DATA, target = ".content-radios") {
     </div>
 
     <div class="radio-item">
-      <p>Choix du modèle</p>
+      <div class="radio-item__size">
+        <p>Choix du modèle</p>
+        <p style="text-decoration: underline; cursor: pointer;">Guide des tailles</p>
+      </div>
       <div class="item__choices lines">
         ${model.map(o => renderLine("model", o, true)).join("")}
       </div>
