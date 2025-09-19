@@ -37,7 +37,9 @@ const getTotalPrice = () => {
 
 const updatePrice = () => {
   const total = getTotalPrice();
-  priceText.innerHTML = total ? total + "€" : "";
+  if (priceText) {
+    priceText.innerHTML = total ? total + "€" : "";
+  }
 };
 
 const updateState = () => {
@@ -90,7 +92,23 @@ const addToCart = () => {
   }, 100);
 };
 
-function updateImg(input) {
+function preload(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = url
+
+    if (img.decode) {
+      img.decode().then(resolve).catch(() => resolve())
+      return
+    }
+    if (img.complete) return resolve()
+    img.onload = () => resolve()
+
+    img.onerror = reject;
+  });
+}
+
+async function updateImg(input) {
   if (getAttribute(input, "name") !== "color") return;
 
   cancelClick(document.body);
@@ -99,34 +117,20 @@ function updateImg(input) {
   if (!imgProduct || !next) return;
 
   const url = `./assets/img/details/${next}.png`;
-  if (imgProduct.src.endsWith(url)) return;
+  if (imgProduct.src.endsWith(url)) {
+    enableClick(document.body);
+    return;
+  }
 
-  gsap.to(imgProduct, {
-    opacity: 0.6,
-    ease: "primary-ease",
-    duration: BASIC_DURATION,
-    onComplete: () => {
-      imgProduct.addEventListener(
-        "load",
-        () => {
-          imgProduct.style.opacity = 0.6;
-        },
-        { once: true }
-      );
-      imgProduct.src = url;
-    },
-  });
+  await preload(url);
 
-  gsap.to(
-    imgProduct,
-    {
-      opacity: 1,
-      onComplete: () => {
-        enableClick(document.body)
-      }
-    },
-    ">"
-  );
+  gsap.timeline({
+    defaults: { ease: "primary-ease", duration: BASIC_DURATION },
+    onComplete: () => enableClick(document.body),
+  })
+  .to(imgProduct, { opacity: 0.6 })
+  .add(() => { imgProduct.src = url; })
+  .to(imgProduct, { opacity: 1 });
 }
 
 // modal + vue 360
@@ -144,8 +148,6 @@ if (buttonsToggleModal.length) {
       if (modal.getAttribute("data-active") === "true") {
         console.log('true')
         initScene();
-      } else {
-        removeScene();
       }
     })
   })
@@ -170,7 +172,9 @@ export function initProductPage() {
     });
   });
 
-  addToCartBtn.addEventListener("click", addToCart);
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", addToCart);
+  }
   updatePrice();
   updateState();
 }

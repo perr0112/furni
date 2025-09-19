@@ -33,7 +33,6 @@ export const products = [
 ]
 
 export const PRODUCT_DATA = {
-    basePrice: 44.99,
     options: {
         color: [
             { id: "noir", value: "noir" },

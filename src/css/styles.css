@@ -321,9 +321,6 @@ p.btn {
   padding-bottom: calc(var(--grid-gap) + var(--grid-width-col));
 }
 
-.footer-item {
-}
-
 .footer-item .item__top-title {
   position: relative;
   font-size: var(--xs);
@@ -375,6 +372,13 @@ p.btn {
   font-size: var(--xs);
   border-radius: 0;
   border: 1px solid var(--secondary);
+}
+
+.footer__logo {}
+
+.footer__logo h3 {
+  font-size: var(--xl) !important;
+  font-weight: 300;
 }
 
 /* cart */

@@ -1,174 +1,94 @@
-// scene 3d
-
-import { $ } from "../utils/dom";
-
-const viewContent = $("[data-view-360]");
+// scene.js
 
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-// import GUI from "lil-gui";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-/**
- * Base
- */
-// Debug
-// const gui = new GUI();
+let renderer, scene, camera, controls, mixer, rafId, clock;
+let onResize;
 
-// Canvas
-const canvas = document.querySelector("canvas.webgl");
-
-// Scene
-const scene = new THREE.Scene();
-
-/**
- * Models
- */
-const gltfLoader = new GLTFLoader();
-
-let mixer = null;
-
-gltfLoader.load(
-  "SheenChair.gltf",
-  (gltf) => {
-    console.log("success");
-    console.log(gltf);
-
-    mixer = new THREE.AnimationMixer(gltf.scene);
-    gltf.scene.scale.setScalar(5);
-
-    scene.add(gltf.scene);
-  },
-  (progress) => {
-    console.log("progress");
-    console.log(progress);
-  },
-  (error) => {
-    console.log("error");
-    console.log(error);
+export function initScene() {
+  const canvas = document.querySelector("canvas.webgl");
+  if (!canvas) {
+    return;
   }
-);
 
-/**
- * Floor
- */
-const floor = new THREE.Mesh(
+  if (renderer) return;
+
+  scene = new THREE.Scene();
+  clock = new THREE.Clock();
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2.4);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1.8);
+  directionalLight.castShadow = true;
+  directionalLight.shadow.mapSize.set(1024, 1024);
+  directionalLight.shadow.camera.far = 15;
+  directionalLight.shadow.camera.left = -7;
+  directionalLight.shadow.camera.top = 7;
+  directionalLight.shadow.camera.right = 7;
+  directionalLight.shadow.camera.bottom = -7;
+  directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
+
+  // Floor
+  const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(10, 10),
-    new THREE.MeshStandardMaterial({
-      color: "#444444",
-      metalness: 0,
-      roughness: 0.5,
-    })
+    new THREE.MeshStandardMaterial({ color: "#444444", })
   );
   floor.receiveShadow = true;
   floor.rotation.x = -Math.PI * 0.5;
   scene.add(floor);
 
-/**
- * Lights
- */
-const ambientLight = new THREE.AmbientLight(0xffffff, 2.4);
-scene.add(ambientLight);
+  // Camera
+  const { clientWidth: cw, clientHeight: ch } = canvas.parentElement || canvas;
+  camera = new THREE.PerspectiveCamera(50, cw / ch, 0.1, 100);
+  camera.position.set(-2, 5, 10);
+  scene.add(camera);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1.8);
-directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.set(1024, 1024);
-directionalLight.shadow.camera.far = 15;
-directionalLight.shadow.camera.left = -7;
-directionalLight.shadow.camera.top = 7;
-directionalLight.shadow.camera.right = 7;
-directionalLight.shadow.camera.bottom = -7;
-directionalLight.position.set(5, 5, 5);
-scene.add(directionalLight);
-
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight,
-};
-
-window.addEventListener("resize", () => {
-  // Update sizes
-    sizes.width = window.innerWidth;
-    sizes.height = window.innerHeight;
-
-  // Update camera
-  camera.aspect = sizes.width / sizes.height;
-  camera.updateProjectionMatrix();
-
-  // Update renderer
-  renderer.setSize("100%", "100%");
+  // Renderer
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-});
+  renderer.setSize(cw, ch);
 
-// const axesHelper = new THREE.AxesHelper( 50 );
-// scene.add( axesHelper );
+  // Controls
+  controls = new OrbitControls(camera, canvas);
+  controls.target.set(1.5, 0, 0);
+  controls.enableDamping = true;
 
-/**
- * Camera
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(
-  50,
-    sizes.width / sizes.height,
-//   3,
-  0.1,
-  100
-);
-camera.position.set(-2, 5, 10);
-scene.add(camera);
+  // Modèle
+  const gltfLoader = new GLTFLoader();
+  gltfLoader.load(
+    "SheenChair.gltf",
+    (gltf) => {
+      mixer = new THREE.AnimationMixer(gltf.scene);
+      gltf.scene.scale.setScalar(5);
+      scene.add(gltf.scene);
+    },
+    undefined,
+    (error) => console.error(error)
+  );
 
-// Controls
-const controls = new OrbitControls(camera, canvas);
-controls.target.set(1.5, 0, 0);
-// controls.target.set(0.5, 1, 2);
-controls.enableDamping = true;
+  onResize = () => {
+    const w = (canvas.parentElement || canvas).clientWidth || window.innerWidth;
+    const h = (canvas.parentElement || canvas).clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  };
+  window.addEventListener("resize", onResize);
 
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-});
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-renderer.setSize(sizes.width, sizes.height);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const tick = () => {
+    const delta = clock.getDelta();
+    if (mixer) mixer.update(delta);
+    controls.update();
+    renderer.render(scene, camera);
+    rafId = requestAnimationFrame(tick);
+  };
 
-/**
- * Animate
- */
-const clock = new THREE.Clock();
-let previousTime = 0;
-
-const tick = () => {
-  const elapsedTime = clock.getElapsedTime();
-  const deltaTime = elapsedTime - previousTime;
-  previousTime = elapsedTime;
-
-  // Update mixer
-  if (mixer !== null) {
-    mixer.update(deltaTime);
-  }
-
-  // Update controls
-  controls.update();
-
-  // Render
-  renderer.render(scene, camera);
-
-  // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
-};
-
-export function initScene() {
   tick();
-}
-
-export function removeScene() {
-    while(scene.children.length > 0){ 
-        scene.remove(scene.children[0]); 
-    }
 }
